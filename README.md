@@ -33,10 +33,8 @@ npm install
 ```sh
 npm start   o   npm run dev
 ```
-## Plugins
+## EndPoints
 
-Dillinger is currently extended with the following plugins.
-Instructions on how to use them in your own application are linked below.
 
 | EndPoint | Ruta | Autenticacion | Metodo Http | Campos |
 | ------ | ------ |---------------|-------------|--------|
