@@ -41,6 +41,7 @@ Instructions on how to use them in your own application are linked below.
 | EndPoint | Ruta | Autenticacion | Metodo Http | Campos |
 | ------ | ------ |---------------|-------------|--------|
 | Raiz | / | si | get | Ninguno|
+| Token | /persona/token | si | get | {cedula:String}|
 | Personas | /personas | si | get | Ninguno |
 | Persona | /persona/:cedula | si | get | cedula[numero] |
 | Persona | /persona | si | post | {   cedula:String,                       nombre:String,                                                          apellido:String,                                                        telefono:String,                                                            direcciones: [{direccion:String,ciudad:String}] } |
