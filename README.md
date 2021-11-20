@@ -6,15 +6,15 @@
 - agregar el campo DB_URI en el archivo .env
 - npm start
 
-## EndPoints
-# Raiz
-- Ruta
-/
-- Metodo
-Get
-- Recibe
-nada
-- Responde
-Json { API:"nombre",
+# EndPoints
+## Raiz
+### Ruta
+- /
+### Metodo
+- Get
+### Recibe
+- nada
+### Responde
+- Json { API:"nombre",
     Readme:"url"
 }
