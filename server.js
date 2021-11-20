@@ -10,6 +10,7 @@ app.use(bodyParser.json());
 
 app.use(require('./src/routes/main.route'));
 app.use(require('./src/routes/persona.route'));
+app.use(require('./src/routes/producto.route'));
 
 
 

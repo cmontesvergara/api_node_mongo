@@ -1,5 +1,6 @@
 const personaCtrl = {};
 const Person = require('../model/persona.model')
+const jwt = require('jsonwebtoken')
 personaCtrl.getPersonas = async (req,res)=>{ 
     try {
         const personas = await Person.find({});
@@ -10,7 +11,7 @@ personaCtrl.getPersonas = async (req,res)=>{
 };
 personaCtrl.getPersona = async (req,res)=>{ 
     try {
-        const personas = await Person.find({cedula:req.params.cedula});
+        const personas = await Person.findOne({cedula:req.params.cedula});
         if(personas.length ==0){
             res.send("No se encontro en la DB");
         }else{
@@ -29,6 +30,7 @@ personaCtrl.createPersona = async (req,res)=>{
             apellido:req.body.apellido,
             telefono:req.body.telefono,
             direccion:req.body.direccion,
+            token:""
 
         };
         let _persona = new Person(personTemp);
@@ -66,6 +68,33 @@ personaCtrl.deletePersona = async (req,res)=>{
         console.log(error)
     }
 };
+
+personaCtrl.token = async (req, res )=>{
+    try {
+        const {cedula} = req.body;
+        if(!(cedula)){
+            res.status(400).send("cedula requerida");
+
+        }
+        const prs = await Person.findOne({cedula:cedula});
+        if(prs){
+            const token = jwt.sign({user_id:prs._id,cedula},process.env.TOKEN_KEY,{
+                expiresIn:"24h"
+            })
+
+            await Person.updateOne({cedula:cedula},{token:token})
+
+            res.status(201).json(token);
+        }
+        res.status(400).send("credenciales Invalidas")
+        
+        
+    } catch (error) {
+        console.log(error);
+        res.send("Ocurrio un Error Interno");
+        
+    }
+}
 
 module.exports = personaCtrl;
 

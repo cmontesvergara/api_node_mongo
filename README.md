@@ -1,12 +1,20 @@
 # apiRest with Node.Js and Mongo Atlas
-### Instalacion
+## Instalacion
 - ejecutar npm install
-- crear un archivo .env
-- agregar el campo PORT en el archivo .env
+- crear un archivo llamado .env
+- agregar el campo PORT en el archivo  .env
 - agregar el campo DB_URI en el archivo .env
+- npm start
 
-Ejemplo:
-
-PORT=3001
-DB_URI=mongodb+srv://user:pass@cluster0.dndcx...
-
+## EndPoints
+# Raiz
+- Ruta
+/
+- Metodo
+Get
+- Recibe
+nada
+- Responde
+Json { API:"nombre",
+    Readme:"url"
+}

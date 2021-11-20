@@ -6,7 +6,8 @@ let personSchema = new Schema ({
     nombre: {type:String , required:true},
     apellido: {type:String , required:true},
     telefono: String,
-    direcciones: [{direccion:String,ciudad:String}]
+    direcciones: [{direccion:String,ciudad:String}],
+    token:String
 });
 
 const Person  = mongoose.model('Person',personSchema);
